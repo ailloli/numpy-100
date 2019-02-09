@@ -1,19 +1,18 @@
 
-# 100 numpy exercises
+# NumPy 예제 100개
 
-This is a collection of exercises that have been collected in the numpy mailing list, on stack overflow and in the numpy documentation. The goal of this collection is to offer a quick reference for both old and new users but also to provide a set of exercises for those who teach.
+* 스칼라 = 단일 값, 벡터 = 1차원 배열, 행렬 = 2차원 배열
+* 배열의 '모양(shape)'이 (2, 3, 4)라는 건 2x3x4 배열임을 의미
+* '랜덤'은 따로 언급하지 않는 이상 0과 1 사이의 무작위 실수를 의미
 
-
-If you find an error or think you've a better way to solve some of them, feel free to open an issue at <https://github.com/rougier/numpy-100>
-
-#### 1. Import the numpy package under the name `np` (★☆☆)
+#### 1.  `np`로 NumPy 패키지 가져오기 (★☆☆)
 
 
 ```python
 import numpy as np
 ```
 
-#### 2. Print the numpy version and the configuration (★☆☆)
+#### 2.  NumPy 버전과 환경 설정 정보 출력하기 (★☆☆)
 
 
 ```python
@@ -21,7 +20,7 @@ print(np.__version__)
 np.show_config()
 ```
 
-#### 3. Create a null vector of size 10 (★☆☆)
+#### 3.  크기 10의 영벡터 만들어 보기 (★☆☆)
 
 
 ```python
@@ -29,7 +28,7 @@ Z = np.zeros(10)
 print(Z)
 ```
 
-#### 4.  How to find the memory size of any array (★☆☆)
+#### 4.  배열이 메모리에 저장되어 있는 크기 알아보기 (★☆☆)
 
 
 ```python
@@ -37,14 +36,14 @@ Z = np.zeros((10,10))
 print("%d bytes" % (Z.size * Z.itemsize))
 ```
 
-#### 5.  How to get the documentation of the numpy add function from the command line? (★☆☆)
+#### 5.  터미널에서 NumPy add 함수 설명 가져오기 (★☆☆)
 
 
 ```python
 %run `python -c "import numpy; numpy.info(numpy.add)"`
 ```
 
-#### 6.  Create a null vector of size 10 but the fifth value which is 1 (★☆☆)
+#### 6.  5번째 값만 1이고 나머지는 다 0인 크기 10의 벡터 만들어 보기 (★☆☆)
 
 
 ```python
@@ -53,7 +52,7 @@ Z[4] = 1
 print(Z)
 ```
 
-#### 7.  Create a vector with values ranging from 10 to 49 (★☆☆)
+#### 7.  10부터 49까지의 수가 연속적으로 들어가 있는 벡터 (\[10, 11, 12, ..., 48, 49\]) 만들기 (★☆☆)
 
 
 ```python
@@ -61,7 +60,7 @@ Z = np.arange(10,50)
 print(Z)
 ```
 
-#### 8.  Reverse a vector (first element becomes last) (★☆☆)
+#### 8.  벡터 뒤집기 (첫 원소가 마지막 원소가 됨) (★☆☆)
 
 
 ```python
@@ -70,7 +69,7 @@ Z = Z[::-1]
 print(Z)
 ```
 
-#### 9.  Create a 3x3 matrix with values ranging from 0 to 8 (★☆☆)
+#### 9.  0에서 8까지의 수가 연속적으로 들어 있는 3x3 행렬 만들기 (★☆☆)
 
 
 ```python
@@ -78,7 +77,7 @@ Z = np.arange(9).reshape(3,3)
 print(Z)
 ```
 
-#### 10. Find indices of non-zero elements from \[1,2,0,0,4,0\] (★☆☆)
+#### 10. 배열 \[1,2,0,0,4,0\]에서 0이 아닌 원소들의 위치 찾기 (★☆☆)
 
 
 ```python
@@ -86,7 +85,7 @@ nz = np.nonzero([1,2,0,0,4,0])
 print(nz)
 ```
 
-#### 11. Create a 3x3 identity matrix (★☆☆)
+#### 11. 3x3 단위행렬 만들기 (★☆☆)
 
 
 ```python
@@ -94,7 +93,7 @@ Z = np.eye(3)
 print(Z)
 ```
 
-#### 12. Create a 3x3x3 array with random values (★☆☆)
+#### 12. 0에서 1 사이의 랜덤한 실수로 채워진 3x3x3 배열 만들기 (★☆☆)
 
 
 ```python
@@ -102,7 +101,7 @@ Z = np.random.random((3,3,3))
 print(Z)
 ```
 
-#### 13. Create a 10x10 array with random values and find the minimum and maximum values (★☆☆)
+#### 13. 10x10 랜덤 행렬을 만들고 최대, 최소값 구하기 (★☆☆)
 
 
 ```python
@@ -111,7 +110,7 @@ Zmin, Zmax = Z.min(), Z.max()
 print(Zmin, Zmax)
 ```
 
-#### 14. Create a random vector of size 30 and find the mean value (★☆☆)
+#### 14. 크기 30의 랜덤 벡터를 만들고 평균 구하기 (★☆☆)
 
 
 ```python
@@ -120,7 +119,7 @@ m = Z.mean()
 print(m)
 ```
 
-#### 15. Create a 2d array with 1 on the border and 0 inside (★☆☆)
+#### 15. 안은 0으로, 테두리는 1로 채워진 행렬 만들기 (★☆☆)
 
 
 ```python
@@ -129,7 +128,7 @@ Z[1:-1,1:-1] = 0
 print(Z)
 ```
 
-#### 16. How to add a border (filled with 0's) around an existing array? (★☆☆)
+#### 16. 미리 존재하는 행렬에 0으로 채워진 테두리를 상하좌우 한 줄씩 추가하기 (★☆☆)
 
 
 ```python
@@ -138,7 +137,7 @@ Z = np.pad(Z, pad_width=1, mode='constant', constant_values=0)
 print(Z)
 ```
 
-#### 17. What is the result of the following expression? (★☆☆)
+#### 17. 다음 코드의 실행 결과는? (★☆☆)
 
 
 ```python
@@ -150,7 +149,7 @@ print(np.nan in set([np.nan]))
 print(0.3 == 3 * 0.1)
 ```
 
-#### 18. Create a 5x5 matrix with values 1,2,3,4 just below the diagonal (★☆☆)
+#### 18. 왼쪽 위에서 오른쪽 아래로 내려가는 대각선 바로 아래 값들이 1, 2, 3, 4로 채워진 5x5 행렬 만들기 (★☆☆)
 
 
 ```python
@@ -158,7 +157,7 @@ Z = np.diag(1+np.arange(4),k=-1)
 print(Z)
 ```
 
-#### 19. Create a 8x8 matrix and fill it with a checkerboard pattern (★☆☆)
+#### 19. 8x8 체스판 행렬 만들기 (★☆☆)
 
 
 ```python
@@ -168,14 +167,14 @@ Z[::2,1::2] = 1
 print(Z)
 ```
 
-#### 20. Consider a (6,7,8) shape array, what is the index (x,y,z) of the 100th element?
+#### 20. 6x7x8 배열(혹은 모양이 (6, 7, 8)인 배열)에서 100번째 원소의 좌표 (x, y, z)는?
 
 
 ```python
 print(np.unravel_index(99,(6,7,8)))
 ```
 
-#### 21. Create a checkerboard 8x8 matrix using the tile function (★☆☆)
+#### 21. tile 함수를 이용해 8x8 체스판 행렬 만들기 (★☆☆)
 
 
 ```python
@@ -183,7 +182,7 @@ Z = np.tile( np.array([[0,1],[1,0]]), (4,4))
 print(Z)
 ```
 
-#### 22. Normalize a 5x5 random matrix (★☆☆)
+#### 22. 5x5 랜덤 행렬 정규화하기 (★☆☆)
 
 
 ```python
@@ -192,7 +191,7 @@ Z = (Z - np.mean (Z)) / (np.std (Z))
 print(Z)
 ```
 
-#### 23. Create a custom dtype that describes a color as four unsigned bytes (RGBA) (★☆☆)
+#### 23. 4개의 unsigned byte로 색상을 표현하는 커스텀 타입 만들기 (빨강, 초록, 파랑, 투명도) (★☆☆)
 
 
 ```python
@@ -202,7 +201,7 @@ color = np.dtype([("r", np.ubyte, 1),
                   ("a", np.ubyte, 1)])
 ```
 
-#### 24. Multiply a 5x3 matrix by a 3x2 matrix (real matrix product) (★☆☆)
+#### 24. 5x3 행렬과 3x2 행렬의 곱셈 (★☆☆)
 
 
 ```python
@@ -214,7 +213,7 @@ Z = np.ones((5,3)) @ np.ones((3,2))
 print(Z)
 ```
 
-#### 25. Given a 1D array, negate all elements which are between 3 and 8, in place. (★☆☆)
+#### 25. 1차원 배열에서, 3하고 8 사이의 값들에만 -1 곱하기 (★☆☆)
 
 
 ```python
@@ -225,7 +224,7 @@ Z[(3 < Z) & (Z <= 8)] *= -1
 print(Z)
 ```
 
-#### 26. What is the output of the following script? (★☆☆)
+#### 26. 다음 코드의 실행 결과는? (★☆☆)
 
 
 ```python
@@ -236,7 +235,7 @@ from numpy import *
 print(sum(range(5),-1))
 ```
 
-#### 27. Consider an integer vector Z, which of these expressions are legal? (★☆☆)
+#### 27. 정수 벡터 Z에 대해 다음 중 올바른 식은? (★☆☆)
 
 
 ```python
@@ -248,7 +247,7 @@ Z/1/1
 Z<Z>Z
 ```
 
-#### 28. What are the result of the following expressions?
+#### 28. 다음 코드의 실행 결과는?
 
 
 ```python
@@ -257,7 +256,7 @@ print(np.array(0) // np.array(0))
 print(np.array([np.nan]).astype(int).astype(float))
 ```
 
-#### 29. How to round away from zero a float array ? (★☆☆)
+#### 29. 실수 배열에서 모든 원소를 0에서 먼 쪽의 정수로 바꾸기 (★☆☆)
 
 
 ```python
@@ -267,7 +266,7 @@ Z = np.random.uniform(-10,+10,10)
 print (np.copysign(np.ceil(np.abs(Z)), Z))
 ```
 
-#### 30. How to find common values between two arrays? (★☆☆)
+#### 30. 두 배열의 교집합 찾기 (★☆☆)
 
 
 ```python
@@ -276,7 +275,7 @@ Z2 = np.random.randint(0,10,10)
 print(np.intersect1d(Z1,Z2))
 ```
 
-#### 31. How to ignore all numpy warnings (not recommended)? (★☆☆)
+#### 31. NumPy의 모든 경고 무시하기 (추천하지 않음) (★☆☆)
 
 
 ```python
@@ -288,21 +287,21 @@ Z = np.ones(1) / 0
 _ = np.seterr(**defaults)
 ```
 
-An equivalent way, with a context manager:
+Context manager를 사용한 다른 방법:
 
 ```python
 with np.errstate(divide='ignore'):
     Z = np.ones(1) / 0
 ```
 
-#### 32. Is the following expressions true? (★☆☆)
+#### 32. 다음 코드의 실행 결과는? (★☆☆)
 
 
 ```python
 np.sqrt(-1) == np.emath.sqrt(-1)
 ```
 
-#### 33. How to get the dates of yesterday, today and tomorrow? (★☆☆)
+#### 33. 어제, 오늘, 내일 날짜 가져오기 (★☆☆)
 
 
 ```python
@@ -311,7 +310,7 @@ today     = np.datetime64('today', 'D')
 tomorrow  = np.datetime64('today', 'D') + np.timedelta64(1, 'D')
 ```
 
-#### 34. How to get all the dates corresponding to the month of July 2016? (★★☆)
+#### 34. 2016년 7월의 모든 날짜 가져오기 (★★☆)
 
 
 ```python
@@ -319,7 +318,7 @@ Z = np.arange('2016-07', '2016-08', dtype='datetime64[D]')
 print(Z)
 ```
 
-#### 35. How to compute ((A+B)\*(-A/2)) in place (without copy)? (★★☆)
+#### 35. 새로운 값 선언이나 복사 없이 벡터 A, B에 대해 ((A+B)\*(-A/2)) 계산하기 (★★☆)
 
 
 ```python
@@ -332,7 +331,7 @@ np.negative(A,out=A)
 np.multiply(A,B,out=A)
 ```
 
-#### 36. Extract the integer part of a random array using 5 different methods (★★☆)
+#### 36. 다섯 가지 방법으로 랜덤 실수 배열의 정수 부분 가져오기 (★★☆)
 
 
 ```python
@@ -345,7 +344,7 @@ print (Z.astype(int))
 print (np.trunc(Z))
 ```
 
-#### 37. Create a 5x5 matrix with row values ranging from 0 to 4 (★★☆)
+#### 37. 세로 값이 0, 1, 2, 3, 4로 채워진 5x5 행렬 만들기 (★★☆)
 
 
 ```python
@@ -354,7 +353,7 @@ Z += np.arange(5)
 print(Z)
 ```
 
-#### 38. Consider a generator function that generates 10 integers and use it to build an array (★☆☆)
+#### 38. 정수 10개를 생성해 배열을 만드는 제네레이터 함수 만들기 (★☆☆)
 
 
 ```python
@@ -365,7 +364,7 @@ Z = np.fromiter(generate(),dtype=float,count=-1)
 print(Z)
 ```
 
-#### 39. Create a vector of size 10 with values ranging from 0 to 1, both excluded (★★☆)
+#### 39. 1/11부터 10/11까지의 값을 포함하는 크기 10의 벡터 만들기 (★★☆)
 
 
 ```python
@@ -373,7 +372,7 @@ Z = np.linspace(0,1,11,endpoint=False)[1:]
 print(Z)
 ```
 
-#### 40. Create a random vector of size 10 and sort it (★★☆)
+#### 40. 크기 10의 랜덤 벡터를  (★★☆)
 
 
 ```python
@@ -382,7 +381,7 @@ Z.sort()
 print(Z)
 ```
 
-#### 41. How to sum a small array faster than np.sum? (★★☆)
+#### 41. 작은 배열에서 np.sum보다 빠르게 총합 계산하기 (★★☆)
 
 
 ```python
@@ -392,7 +391,7 @@ Z = np.arange(10)
 np.add.reduce(Z)
 ```
 
-#### 42. Consider two random array A and B, check if they are equal (★★☆)
+#### 42. 랜덤 배열 A, B가 같은지 확인하기 (★★☆)
 
 
 ```python
@@ -408,7 +407,7 @@ equal = np.array_equal(A,B)
 print(equal)
 ```
 
-#### 43. Make an array immutable (read-only) (★★☆)
+#### 43. 배열을 immutable(수정 불가능)하게 만들기 (★★☆)
 
 
 ```python
@@ -417,7 +416,7 @@ Z.flags.writeable = False
 Z[0] = 1
 ```
 
-#### 44. Consider a random 10x2 matrix representing cartesian coordinates, convert them to polar coordinates (★★☆)
+#### 44. 직교좌표계상의 점들의 좌표를 의미하는 랜덤 10x2 행렬을 만들고, 극좌표계로 변환하기 (★★☆)
 
 
 ```python
@@ -429,7 +428,7 @@ print(R)
 print(T)
 ```
 
-#### 45. Create random vector of size 10 and replace the maximum value by 0 (★★☆)
+#### 45. 크기 10의 랜덤 벡터를 만들고 최댓값만 0으로 교체하기 (★★☆)
 
 
 ```python
@@ -438,7 +437,7 @@ Z[Z.argmax()] = 0
 print(Z)
 ```
 
-#### 46. Create a structured array with `x` and `y` coordinates covering the \[0,1\]x\[0,1\] area (★★☆)
+#### 46. \[0,1\]x\[0,1\] 영역을 16등분하는 점들의 좌표를 포함하는 structured array 만들기 (★★☆)
 
 
 ```python
@@ -448,7 +447,7 @@ Z['x'], Z['y'] = np.meshgrid(np.linspace(0,1,5),
 print(Z)
 ```
 
-####  47. Given two arrays, X and Y, construct the Cauchy matrix C (Cij =1/(xi - yj))
+####  47. 배열 X와 Y에 대해 Cauchy 행렬 C (Cij =1/(xi - yj)) 계산하기 (★★☆)
 
 
 ```python
@@ -460,7 +459,7 @@ C = 1.0 / np.subtract.outer(X, Y)
 print(np.linalg.det(C))
 ```
 
-#### 48. Print the minimum and maximum representable value for each numpy scalar type (★★☆)
+#### 48. NumPy 스칼라 자료형들의 최대, 최소값 출력하기 (★★☆)
 
 
 ```python
@@ -473,7 +472,7 @@ for dtype in [np.float32, np.float64]:
    print(np.finfo(dtype).eps)
 ```
 
-#### 49. How to print all the values of an array? (★★☆)
+#### 49. 배열의 모든 원소 출력하기 (★★☆)
 
 
 ```python
@@ -482,7 +481,7 @@ Z = np.zeros((16,16))
 print(Z)
 ```
 
-#### 50. How to find the closest value (to a given scalar) in a vector? (★★☆)
+#### 50. 벡터에서 어떤 스칼라에 가장 가까운 값  (★★☆)
 
 
 ```python
@@ -492,7 +491,7 @@ index = (np.abs(Z-v)).argmin()
 print(Z[index])
 ```
 
-#### 51. Create a structured array representing a position (x,y) and a color (r,g,b) (★★☆)
+#### 51. 위치 (x, y)와 색상 (r, g, b)를 포함하는 structured array 만들기 (★★☆)
 
 
 ```python
@@ -504,7 +503,7 @@ Z = np.zeros(10, [ ('position', [ ('x', float, 1),
 print(Z)
 ```
 
-#### 52. Consider a random vector with shape (100,2) representing coordinates, find point by point distances (★★☆)
+#### 52. 좌표를 나타내는 모양이 (100, 2)인 랜덤 배열에서, 점과 점 사이의 거리 계산하기 (★★☆)
 
 
 ```python
@@ -523,7 +522,7 @@ D = scipy.spatial.distance.cdist(Z,Z)
 print(D)
 ```
 
-#### 53. How to convert a float (32 bits) array into an integer (32 bits) in place?
+#### 53. float (32비트) 배열을 integer (32비트) 배열로 변환하기 (★★☆)
 
 
 ```python
@@ -532,7 +531,7 @@ Z = Z.astype(np.int32, copy=False)
 print(Z)
 ```
 
-#### 54. How to read the following file? (★★☆)
+#### 54. 주어진 파일을 해석해 배열로 변환하기 (★★☆)
 
 
 ```python
@@ -546,7 +545,7 @@ Z = np.genfromtxt(s, delimiter=",", dtype=np.int)
 print(Z)
 ```
 
-#### 55. What is the equivalent of enumerate for numpy arrays? (★★☆)
+#### 55. NumPy 배열에서 enumerate와 같은 동작 (★★☆)
 
 
 ```python
@@ -557,7 +556,7 @@ for index in np.ndindex(Z.shape):
     print(index, Z[index])
 ```
 
-#### 56. Generate a generic 2D Gaussian-like array (★★☆)
+#### 56. 2차원 가우시안 분포 비슷한 배열 생성 (★★☆)
 
 
 ```python
@@ -568,7 +567,7 @@ G = np.exp(-( (D-mu)**2 / ( 2.0 * sigma**2 ) ) )
 print(G)
 ```
 
-#### 57. How to randomly place p elements in a 2D array? (★★☆)
+#### 57. 2차원 배열에 원소 p개 랜덤하게 넣기 (★★☆)
 
 
 ```python
@@ -581,7 +580,7 @@ np.put(Z, np.random.choice(range(n*n), p, replace=False),1)
 print(Z)
 ```
 
-#### 58. Subtract the mean of each row of a matrix (★★☆)
+#### 58. 행렬에서 매 열의 평균을 0으로 만들기 (★★☆)
 
 
 ```python
@@ -598,7 +597,7 @@ Y = X - X.mean(axis=1).reshape(-1, 1)
 print(Y)
 ```
 
-#### 59. How to I sort an array by the nth column? (★★☆)
+#### 59. n번째 행을 기준으로 배열 정렬하기 (★★☆)
 
 
 ```python
@@ -609,7 +608,7 @@ print(Z)
 print(Z[Z[:,1].argsort()])
 ```
 
-#### 60. How to tell if a given 2D array has null columns? (★★☆)
+#### 60. 어떤 행렬에서 모든 항목이 0인 행이 있는지 검사하기 (★★☆)
 
 
 ```python
@@ -619,7 +618,7 @@ Z = np.random.randint(0,3,(3,10))
 print((~Z.any(axis=0)).any())
 ```
 
-#### 61. Find the nearest value from a given value in an array (★★☆)
+#### 61. 배열에서 어떤 임의의 값에서 가장 가까운 값 찾기 (★★☆)
 
 
 ```python
@@ -629,7 +628,7 @@ m = Z.flat[np.abs(Z - z).argmin()]
 print(m)
 ```
 
-#### 62. Considering two arrays with shape (1,3) and (3,1), how to compute their sum using an iterator? (★★☆)
+#### 62. iterator를 이용해 (1, 3) 배열과 (3, 1) 배열의 합 계산 (★★☆)
 
 
 ```python
@@ -640,7 +639,7 @@ for x,y,z in it: z[...] = x + y
 print(it.operands[2])
 ```
 
-#### 63. Create an array class that has a name attribute (★★☆)
+#### 63. 이름 항목이 있는 배열 클래스 만들기 (★★☆)
 
 
 ```python
