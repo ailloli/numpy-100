@@ -1,4 +1,4 @@
-## 100 numpy exercises
+## NumPy 예제 100개
 
 [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org:/repo/rougier/numpy-100/notebooks/100%20Numpy%20exercises.ipynb)
 
@@ -9,3 +9,5 @@ This is a collection of numpy exercises from numpy mailing list, stack overflow,
 
 This work is licensed under the MIT license.  
 [![DOI](https://zenodo.org/badge/10173/rougier/numpy-100.svg)](https://zenodo.org/badge/latestdoi/10173/rougier/numpy-100)
+
+* 한국어 번역: 61 / 100 (61%)
