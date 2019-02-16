@@ -685,7 +685,7 @@ F = np.bincount(I,X)
 print(F)
 ```
 
-#### 66. Considering a (w,h,3) image of (dtype=ubyte), compute the number of unique colors (★★★)
+#### 66. 모양이 (w,h,3) 이고 데이터 타입이 ubyte 인 이미지에서 등장한 색상의 수를 구하기 (★★★)
 
 
 ```python
